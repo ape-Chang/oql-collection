@@ -1,5 +1,6 @@
 Common OQL statements to query objects in java heap, on Eclipse MAT. These queries are collected from my daily usage, or somebody's blogs, books, etc.
-===
+
+---
 1. show all instances of `java.lang.String`.
 ```sql
 select * from java.lang.String
@@ -24,11 +25,13 @@ select * from [I a where a.length >= 256
 ```sql 
 select * from classof(cl).name from instanceof java.lang.ClassLoader cl
 ```
+---
 6. show objects referred by a soft reference.
 ```sql
 select ref.reference from java.lang.ref.SoftReference ref 
 where ref.reference != null
 ```
+---
 7. show referents that are not referred by another object. i.e., the referent is reachable only by that soft reference. 
 ```sql
 select f.referent from java.lang.ref.SoftReference f 
